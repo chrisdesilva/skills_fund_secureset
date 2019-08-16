@@ -2,7 +2,7 @@ import React from 'react'
 import Button from './button'
 
 const costOfLiving = true // true if at least one program offers cost of living
-const schoolName = 'SCHOOL NAME'
+const schoolName = 'SecureSet'
 
 const ThreeSteps = React.forwardRef((props, ref) => {
     return (
@@ -18,8 +18,8 @@ const ThreeSteps = React.forwardRef((props, ref) => {
                 {/* vvv Update this section as needed vvv */}
                 <div className="flex flex-col items-center mx-2 lg:w-1/3 px-12 lg:px-0">
                     <p className="rounded-full h-10 w-10 flex items-center justify-center border border-secondary">2</p>
-                    <h3 className="uppercase">select your campus</h3>
-                    <p>EXAMPLE TEXT: Choose from one of four Metis locations including Chicago, Seattle, New York City, and San Francisco.</p>
+                    <h3 className="uppercase">select your program</h3>
+                    <p>Choose between the CORE, HUNT, and PATH programs.</p>
                 </div>
                 {/* ^^^ Update this section as needed ^^^ */}
 

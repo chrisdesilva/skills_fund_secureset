@@ -1,25 +1,27 @@
 import React from 'react'
 
-const schoolName = 'SCHOOL NAME'
+const schoolName = 'SecureSet Academy'
 const costOfLiving = true // true if at least one program has cost of living included
 const interestOnly = true // true if interest-only payments are an option
 const immediateRepayment = true // true if immediate repayment is an option
 const multipleLoanLengths = true // true if 36 and 60 month options are both available
-const interestRate36 = 'X.XX%'
-const interestRate60 = 'XX.XX%'
-const APR36 = 'XX.XX% - XX.XX%'
-const APR60 = 'XX.XX% - XX.XX%'
-const IOPayment36 = '$XX.XX'
-const IOPayment60 = '$XX.XX'
+const interestRate36 = '9.49%'
+const interestRate60 = '11.46%'
+const APR36 = '11.52% - 11.67%'
+const APR60 = '12.92%- 12.99%'
+const IOPayment36 = '$82.25'
+const IOPayment60 = '$99.32'
 
 // update with school-specific info
 const FAQ = () => (
     <div className="border-2 border-gray-300 shadow-xl rounded-lg m-2 lg:m-10 p-8">
        <h2 className="mt-4 text-center">Frequently Asked Questions</h2>
        <h3 className="uppercase text-secondary">how much can i borrow and for what specific uses?</h3>
+       <p>The maximum amount you can borrow will depend on your program. You can finance your tuition, optional certification, and cost of living expenses.</p>
           <ul>
-            <li><strong>For the PROGRAM NAME program,</strong> you may borrow from $2,000 to MAX TUITION AMOUNT for tuition. You may also borrow up to COST OF LIVING AMOUNT for cost of living.</li>
-            <li><strong>For the PROGRAM NAME program,</strong> you may borrow from $2,000 to MAX TUITION AMOUNT for tuition. Cost of living is not available for this program.</li>
+            <li><strong>For the CORE Full-Time Program,</strong> you may borrow from $2,000 to $20,000 for tuition. You may also borrow up to $10,000 for cost of living and up to $7,400 for optional certification.</li>
+            <li><strong>For the HUNT Full-Time Program,</strong> you may borrow from $2,000 to $12,000 for tuition. You may also borrow up to $6,000 for cost of living and up to $7,400 for optional certification.</li>
+            <li><strong>For the PATH Part-Time program,</strong> you may borrow from $2,000 to $16,000 for tuition and up to $7,400 for optional certification. Cost of living is not available for this program.</li>
           </ul>
           <p><strong>Please note:</strong> In order to finance cost of living, borrow at least $2,000 in tuition financing. You will pay your cash deposit directly to <strong>{schoolName}</strong>.</p>
      
@@ -28,7 +30,7 @@ const FAQ = () => (
        <h3 className="uppercase text-secondary">when will i receive my living stipend?</h3>
 
             {/* INCLUDE FIRST <p> IF ONLY CERTAIN PROGRAMS OFFER COST OF LIVING */}
-            <p><strong>Only the PROGRAM NAME(S) programs are eligible for cost of living.</strong></p>
+            <p><strong>Only the CORE and HUNT programs are eligible for cost of living.</strong></p>
             <p>Your lump sum living stipend will be sent to you on the second Wednesday after your program start. You can elect to have your cost of living disbursed via electronic funds transfer or mailed directly to the address provided in their loan application.</p>
             <p>Please allow 1 - 5 business days for your electronic funds transfer to be reflected in your bank account. For all students who elect to have funds mailed to their address, please allow 5 - 10 business days for your check to arrive via U.S. Standard Mail.</p>
        </div>

@@ -1,13 +1,13 @@
 import PropTypes from "prop-types"
 import React from "react"
-import schoolLogo from "../images/230x45.png" // add school logo to images folder and import here
+import schoolLogo from "../images/secureset_logo.png" // add school logo to images folder and import here
 import skillsFund from "../images/skillsFund_logo.png"
 
 // update school-specific info
 
 const schoolInfo = {
-  schoolName: 'SCHOOL NAME',
-  schoolUrl: 'https://skills.fund' // update with url of school's website
+  schoolName: 'SecureSet Academy',
+  schoolUrl: 'https://secureset.com/' // update with url of school's website
 }
 
 const Header = ({ siteTitle }) => (
@@ -17,7 +17,7 @@ const Header = ({ siteTitle }) => (
     }}
   >
     <div className="flex justify-center">
-      <div className="w-full md:w-1/2 lg:w-1/3 flex justify-around items-center py-8 px-2 lg:px-0 mt-8">
+      <div className="w-full md:w-1/2 lg:w-1/3 flex justify-around items-center py-8 px-2 lg:px-0 mt-6">
           <a
             href={schoolInfo.schoolUrl}
             target="_blank"
@@ -26,7 +26,7 @@ const Header = ({ siteTitle }) => (
             <img
               src={schoolLogo} 
               alt={schoolInfo.schoolName}
-              className="h-12"
+              className="h-16"
             />
           </a>
           <a

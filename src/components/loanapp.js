@@ -9,25 +9,28 @@ const LoanApp = React.forwardRef((props, ref) => {
     const [IP, setIP] = useState('')
     const [disclaimers, toggleDisclaimers] = useState(false)
     const [programInfo, setProgramInfo] = useState({
-        programName: 'PROGRAM NAME',
+        programName: 'CORE Program',
         active: { 
             program1: false,
             program2: false,
-            program3: false
+            program3: false,
+            program4: false,
+            program5: false,
+            program6: false,
         }
     })
-    const [loanUrl, setLoanUrl] = useState(`https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=INSERT_MARKET_SEGMENT_CODE`) // if multiple programs, set lenderCode to first program option
-    const formID = 'HUBSPOT_FORM_ID' // get form id for apply now
-    const schoolName = 'SCHOOL NAME'
-    const pageUri = 'SCHOOLNAME.skills.fund' // partner page uri
+    const [applyNow, showApplyNow] = useState(false)
+    const [loanUrl, setLoanUrl] = useState(`https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=SASSCORE17`) // if multiple programs, set lenderCode to first program option
+    const formID = '84a22c21-7ecc-401e-a742-2bc6b7c068ad' // get form id for apply now
+    const schoolName = 'SecureSet Academy'
+    const pageUri = 'secureset.skills.fund' // partner page uri
     const costOfLiving = true // set to false of cost of living is not available
     const multiplePrograms = true // set to false if there is only one program
     const onlinePrograms = false // set to true if there is at least one online/remote program offered
     const schoolHQState = 'NY' // two letter abbreviation for school headquarters state
 
-    const activeClass = "cursor-pointer border-2 rounded border-black text-center py-2 text-white bg-primary" // highlights selected option in loan app form
-    const inactiveClass = "cursor-pointer border-2 rounded border-black text-center py-2"
-
+    const activeClass = "cursor-pointer border-2 rounded border-black text-center py-2 text-white bg-primary mb-2" // highlights selected option in loan app form
+    const inactiveClass = "cursor-pointer border-2 rounded border-black text-center py-2 mb-2"
 
     const handleChange = e => {
         setEmail(e.target.value)
@@ -38,47 +41,108 @@ const LoanApp = React.forwardRef((props, ref) => {
         switch(programNumber) {
             case 1: // info should match default
                 setProgramInfo({
-                    programName: 'HS_INTERNAL_VALUE_PROGRAM_1', 
+                    programName: 'CORE Program', 
                     active: {
                         program1: !programInfo.active.program1, 
                         program2: false, 
-                        program3: false
+                        program3: false,
+                        program4: false,
+                        program5: false,
+                        program6: false,
                     }
                 })
-                setLoanUrl(`https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=INSERT_MARKET_SEGMENT_CODE`) // update lenderCode with market segment code from LP
+                setLoanUrl(`https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=SASSCORE17`) // update lenderCode with market segment code from LP
+                showApplyNow(true)
                 break;
             case 2:
                 setProgramInfo({
-                    programName: 'HS_INTERNAL_VALUE_PROGRAM_2', 
+                    programName: 'CORE Program + Cert', 
                     active: {
                         program1: false, 
                         program2: !programInfo.active.program2, 
-                        program3: false
+                        program3: false,
+                        program4: false,
+                        program5: false,
+                        program6: false,
                     }
                 })
-                setLoanUrl(`https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=INSERT_MARKET_SEGMENT_CODE`) // update lenderCode with market segment code from LP
+                setLoanUrl(`https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=SASSCOCE17`) // update lenderCode with market segment code from LP
+                showApplyNow(true)
                 break;
             case 3:
                 setProgramInfo({
-                    programName: 'HS_INTERNAL_VALUE_PROGRAM_3', 
+                    programName: 'PATH Program', 
                     active: {
                         program1: false, 
                         program2: false, 
-                        program3: !programInfo.active.program3
+                        program3: !programInfo.active.program3,
+                        program4: false,
+                        program5: false,
+                        program6: false,
                     }
                 })
-                setLoanUrl(`https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=INSERT_MARKET_SEGMENT_CODE`) // update lenderCode with market segment code from LP
+                setLoanUrl(`https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=SASSCOEV17`) // update lenderCode with market segment code from LP
+                showApplyNow(true)
+                break;
+            case 4:
+                setProgramInfo({
+                    programName: 'PATH Program + Cert', 
+                    active: {
+                        program1: false, 
+                        program2: false, 
+                        program3: false,
+                        program4: !programInfo.active.program4,
+                        program5: false,
+                        program6: false,
+                    }
+                })
+                setLoanUrl(`https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=SASSCCEV17`) // update lenderCode with market segment code from LP
+                showApplyNow(true)
+                break;
+            case 5:
+                setProgramInfo({
+                    programName: 'HUNT Program', 
+                    active: {
+                        program1: false, 
+                        program2: false, 
+                        program3: false,
+                        program4: false,
+                        program5: !programInfo.active.program5,
+                        program6: false,
+                    }
+                })
+                setLoanUrl(`https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=SASSHUNT17`) // update lenderCode with market segment code from LP
+                showApplyNow(true)
+                break;
+            case 6:
+                setProgramInfo({
+                    programName: 'HUNT Program + Cert', 
+                    active: {
+                        program1: false, 
+                        program2: false, 
+                        program3: false,
+                        program4: false,
+                        program5: false,
+                        program6: !programInfo.active.program6,
+                    }
+                })
+                setLoanUrl(`https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=SASSHUCE17`) // update lenderCode with market segment code from LP
+                showApplyNow(true)
                 break;
             default: // info should match case 1
                 setProgramInfo({ 
-                    programName: 'HS_INTERNAL_VALUE_PROGRAM_1', 
+                    programName: 'CORE Program', 
                     active: {
                         program1: !programInfo.active.program1, 
                         program2: false, 
-                        program3: false
+                        program3: false,
+                        program4: false,
+                        program5: false,
+                        program6: false,
                     }
                 })
-                setLoanUrl(`https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=INSERT_MARKET_SEGMENT_CODE`)
+                setLoanUrl(`https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=SASSCORE17`)
+                showApplyNow(true)
                 break;
         }
     }
@@ -186,7 +250,7 @@ const LoanApp = React.forwardRef((props, ref) => {
                 <img className="w-auto" src={marching} alt="People marching and carrying flags" />
             </div>
             {/* update form fields as necessary */}
-            <form className="SCHOOL NAME_apply_now program-apply flex flex-col items-center" onSubmit={handleSubmit}>
+            <form className="SecureSet_apply_now program-apply flex flex-col items-center" onSubmit={handleSubmit}>
                 <label htmlFor="email">Email address</label>
                 <input className="applyNowInput" type="email" name="email" placeholder="Enter your email address" onChange={handleChange} value={email} required />
                 {multiplePrograms && 
@@ -194,9 +258,12 @@ const LoanApp = React.forwardRef((props, ref) => {
                         <p className="text-center">Select a {schoolName} program</p>
                         
                         {/* WHEN ADDING AND REMOVING PROGRAMS, PAY ATTENTION TO THE NUMBER AT THE END OF programInfo.active and handleProgramSelect */}
-                        <p className={programInfo.active.program1 ? activeClass : inactiveClass} onClick={() => handleProgramSelect(1)}>PROGRAM 1</p>
-                        <p className={programInfo.active.program2 ? activeClass : inactiveClass} onClick={() => handleProgramSelect(2)}>PROGRAM 2</p>
-                        <p className={programInfo.active.program3 ? activeClass : inactiveClass} onClick={() => handleProgramSelect(3)}>PROGRAM 3</p>
+                        <p className={programInfo.active.program1 ? activeClass : inactiveClass} onClick={() => handleProgramSelect(1)}>CORE Program</p>
+                        <p className={programInfo.active.program2 ? activeClass : inactiveClass} onClick={() => handleProgramSelect(2)}>CORE Program + Cert</p>
+                        <p className={programInfo.active.program3 ? activeClass : inactiveClass} onClick={() => handleProgramSelect(3)}>PATH Program</p>
+                        <p className={programInfo.active.program4 ? activeClass : inactiveClass} onClick={() => handleProgramSelect(4)}>PATH Program + Cert</p>
+                        <p className={programInfo.active.program5 ? activeClass : inactiveClass} onClick={() => handleProgramSelect(5)}>HUNT Program</p>
+                        <p className={programInfo.active.program6 ? activeClass : inactiveClass} onClick={() => handleProgramSelect(6)}>HUNT Program + Cert</p>
                     </div>
                 }
                 <div className="hidden">
@@ -206,7 +273,7 @@ const LoanApp = React.forwardRef((props, ref) => {
                     <input type="text" name="Student Loan Application Status" value="BLA Click Email Submitted"/>
                     <input type="text" name="Clicked Begin Loan Application BLA" value="BLA Click"/>
                 </div>
-                <input className="w-40" value="APPLY NOW" id="loanAppSubmitBtn" type="submit"/>
+                {applyNow && email && <input className="w-40" value="APPLY NOW" id="loanAppSubmitBtn" type="submit"/>}
                 <p className="mt-5 text-xs italic mb-0 px-8 text-center">Please note: clicking Apply Now will open your loan application in a new tab</p>
             </form>
             {onlinePrograms && 

@@ -6,26 +6,23 @@ const LoanCalculator = () => {
     const placeholder = '$10,000'
     const [loanAmount, setLoanAmount] = useState(10000)
     const minLoanAmt = 2000
-    const interestRate36 = 8.99
-    const interestRate60 = 10.99
+    const interestRate36 = 9.49
+    const interestRate60 = 11.46
     const origFee = 0.04
-    const multiPrograms = false // only true if there are multiple programs
+    const multiPrograms = true // only true if there are multiple programs
     const [interestPayment, setInterestPayment] = useState({ payment36: null, payment60: null })
     const [monthlyPayment, setMonthlyPayment] = useState({ payment36: null, payment60: null })
     const [loanType, setLoanType] = useState('0') // default to 0 for interest-only, 1 for immediate repayment
     const [loanInformation, setLoanInformation] = useState({ 
-        maxLoanAmt: 25500,
+        maxLoanAmt: 37400,
         loanTerm36: true, // only true if 36 month option is available
         loanTerm60: true, // only true if 60 month option is available
         k: 5, // (program length in weeks / 4) + 2 -- round program length down to nearest number divisible by 4 (ie. 27 week program rounds down to 24, 24 / 4 + 6 = 12, k = 12)
         '0': { // interest-only
-            apr36: 11.16, 
-            apr60: 12.51
+            apr36: 11.52, 
+            apr60: 12.92
         },
-        '1': { // immediate repayment
-            apr36: 11.69,
-            apr60: 12.55
-        } 
+        '1': null
     })
 
     const updateLoanAmount = e => {
@@ -58,62 +55,46 @@ const LoanCalculator = () => {
     const selectProgram = e => {
         let program = e.target.value
         switch(program) {
-            case "Program 1 Name - Metro 1": // use this info for default case at bottom
+            case "CORE Program": // use this info for default case at bottom
                 setLoanInformation({
                     maxLoanAmt: 25500,
                     loanTerm36: true,
                     loanTerm60: true,
                     '0': { 
+                        k: 7, 
+                        apr36: 11.52, 
+                        apr60: 12.92
+                    },
+                    '1': null
+                })
+                setLoanType('0')
+                break;
+            case "HUNT Program": 
+                setLoanInformation({
+                    maxLoanAmt: 25400,
+                    loanTerm36: true,
+                    loanTerm60: true,
+                    '0': { 
                         k: 5, 
-                        apr36: 11.16, 
-                        apr60: 12.51
+                        apr36: 11.67, 
+                        apr60: 12.99
                     },
                     '1': null
                 })
                 setLoanType('0')
                 break;
-            case "Program 1 Name - Metro 2": 
+            case "PATH Program": 
                 setLoanInformation({
-                    maxLoanAmt: 20500,
+                    maxLoanAmt: 23400,
                     loanTerm36: true,
                     loanTerm60: true,
-                    '0': { 
-                        k: 6, 
-                        apr36: 11.01, 
-                        apr60: 12.55
-                    },
-                    '1': null
-                })
-                setLoanType('0')
-                break;
-            case "Program 2 Name": 
-                setLoanInformation({
-                    maxLoanAmt: 19500,
-                    loanTerm36: false,
-                    loanTerm60: true,
-                    '0': { 
-                        k: 6, 
-                        apr36: 10.91, 
-                        apr60: 12.55
-                    },
-                    '1': {
-                        apr36: 11.69,
-                        apr60: 12.51
-                    }
-                })
-                setLoanType('0')
-                break;
-            case "Program 3 Name":
-                setLoanInformation({
-                    maxLoanAmt: 15500,
-                    loanTerm36: true,
-                    loanTerm60: false, 
                     '0': null,
                     '1': {
-                        apr36: 10.91
+                        apr36: 12.20,
+                        apr60: 13.19
                     }
                 })
-                setLoanType('1') 
+                setLoanType('1')
                 break;
             default: // info below needs to match info from first program
                 setLoanInformation({
@@ -121,9 +102,9 @@ const LoanCalculator = () => {
                     loanTerm36: true,
                     loanTerm60: true,
                     '0': { 
-                        k: 5, 
-                        apr36: 11.16, 
-                        apr60: 12.51
+                        k: 7, 
+                        apr36: 11.52, 
+                        apr60: 12.92
                     },
                     '1': null
                 })
@@ -138,17 +119,16 @@ const LoanCalculator = () => {
                 <h3 className="text-center">Calculate Your Monthly Payments</h3>
 
                 {/* UPDATE LOAN AMOUNTS AND COST OF LIVING BY PROGRAM BELOW */}
-                <p>Choose the loan amount that works best for you. Borrow up to $XX,XXX for PROGRAM_NAME tuition and $XX,XXX for cost of living. </p>
+                <p>Choose the loan amount that works best for you. Borrow up to $20,000 for the CORE Program tuition, $7,400 for optional certification, and $10,000 for cost of living. Borrow up to $12,000 for the HUNT Program tuition, $7,400 for optional certification, and $6,000 for cost of living. Borrow up to $16,000 for the PATH Program tuition and $7,400 for optional certification.</p>
                 
                 {/* ADD OR REMOVE PROGRAMS BELOW */}
                 {multiPrograms &&
                     <div className="flex flex-col justify-center w-full md:w-1/3">
                         <label className="text-xs text-center">Select a Program:</label>
                         <select className="rounded border-2 border-primary mb-5 bg-white text-primary text-center" onChange={selectProgram}>
-                            <option value="Program 1 Name - Metro 1">Program 1 Name - Metro 1</option>
-                            <option value="Program 1 Name - Metro 2">Program 1 Name - Metro 2</option>
-                            <option value="Program 2 Name">Program 2 Name</option>
-                            <option value="Program 3 Name">Program 3 Name</option>
+                            <option value="CORE Program">CORE Program</option>
+                            <option value="HUNT Program">HUNT Program</option>
+                            <option value="PATH Program">PATH Program</option>
                         </select>
                     </div>
                 }
