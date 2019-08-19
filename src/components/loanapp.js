@@ -203,7 +203,7 @@ const LoanApp = React.forwardRef((props, ref) => {
             "value": "Student"
             },
             {
-            "name": "program_name",
+            "name": "select_a_secureset_program", // update school name to match form field on Hubspot
             "value": `${programInfo.programName}`
             },
             {

@@ -12,20 +12,6 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
-      resolve: "gatsby-plugin-hubspot",
-      options: {
-          trackingCode: "3871135",
-          respectDNT: true,
-          productionOnly: false,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-crazyegg`,
-      options: {
-        accountNumber: "00769926"
-      }
-    },
-    {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: "UA-68312423-14",
@@ -42,7 +28,6 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-postcss`,
-    `gatsby-plugin-htaccess`,
     {
       resolve: 'gatsby-plugin-zopfli'
     },
