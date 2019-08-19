@@ -44,6 +44,9 @@ module.exports = {
     `gatsby-plugin-postcss`,
     `gatsby-plugin-htaccess`,
     {
+      resolve: 'gatsby-plugin-zopfli'
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `gatsby-starter-default`,

@@ -9,7 +9,7 @@ const LeadCaptureForm = () => {
         <div className="flex flex-col items-center justify-center mt-8">
             <h2>Get a Head Start</h2>
             <div>
-                <img className="h-64" src={ebook} alt=""/>
+                <img className="h-64" src={ebook} alt="step-by-step guide to paying for your program" loading="lazy"/>
             </div>
             <div className="mx-10 rounded flex flex-col pt-5 px-4 mt-5 justify-center items-center">
                 <p>We'll send you our step-by-step guide to paying for your program.</p>

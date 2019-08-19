@@ -147,11 +147,11 @@ const LoanApp = React.forwardRef((props, ref) => {
         }
     }
 
-    const redirectLoanApp = e => {
+    const redirectLoanApp = () => {
         window.open(loanUrl, "_blank", "noopener noreferrer")
     };
 
-    const trackGoogleAnalyticsEvent = e => {
+    const trackGoogleAnalyticsEvent = () => {
             ReactGA.event({
                 category: 'Apply Now Button',
                 action: 'click',
@@ -247,7 +247,7 @@ const LoanApp = React.forwardRef((props, ref) => {
             {/* update with school name, remove cost of living if school does not offer it */}
             <h3 className="text-center">Apply for {schoolName} Tuition{costOfLiving && <span> and Cost of Living Funding</span>}</h3>
             <div className="flex justify-center">
-                <img className="w-auto" src={marching} alt="People marching and carrying flags" />
+                <img className="w-auto" src={marching} alt="People marching and carrying flags" loading="lazy"/>
             </div>
             {/* update form fields as necessary */}
             <form className="SecureSet_apply_now program-apply flex flex-col items-center" onSubmit={handleSubmit}>
