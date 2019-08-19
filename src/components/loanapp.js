@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import ReactGA from 'react-ga'
-import ReactPixel from 'react-facebook-pixel'
+// import ReactPixel from 'react-facebook-pixel'
 import marching from '../images/PeopleMarchColor.png'
 
 const LoanApp = React.forwardRef((props, ref) => {
@@ -159,12 +159,12 @@ const LoanApp = React.forwardRef((props, ref) => {
             })
     }
 
-    const trackFacebookPixel = () => {
-        ReactPixel.track('InitiateCheckout', {
-            value: 7200.00,
-            currency: 'USD'
-        })
-    }
+    // const trackFacebookPixel = () => {
+    //     ReactPixel.track('InitiateCheckout', {
+    //         value: 7200.00,
+    //         currency: 'USD'
+    //     })
+    // }
 
     // Get IP address from client for Hubspot analytics
     async function fetchIP() {
@@ -238,7 +238,7 @@ const LoanApp = React.forwardRef((props, ref) => {
         .catch(error => console.log('error: ', error))
         
         trackGoogleAnalyticsEvent()
-        trackFacebookPixel()
+        // trackFacebookPixel()
         redirectLoanApp()
     }
 
