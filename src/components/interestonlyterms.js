@@ -11,27 +11,27 @@ const InterestOnlyTerms = props => (
                 <tbody>
                     <tr>
                         <th className="bg-secondary text-center text-white w-1/3">Example on a {props.loanExampleAmt} loan</th>
-                        <th className="bg-secondary text-center text-white w-1/3" colSpan={!props.multipleLoanLengths && "2"}>36 Month</th>
+                        <th className="bg-secondary text-center text-white w-1/3" colSpan={props.multipleLoanLengths ? undefined : "2"}>36 Month</th>
                         {props.multipleLoanLengths && <th className="bg-secondary text-center text-white w-1/3">60 Month</th>}
                     </tr>
                     <tr>
                         <td className="text-center">Annual Percentage Rate</td>
-                        <td className="text-center" colSpan={!props.multipleLoanLengths && "2"}>{props.APR36} (4)</td> 
+                        <td className="text-center" colSpan={props.multipleLoanLengths ? undefined : "2"}>{props.APR36} (4)</td> 
                         {props.multipleLoanLengths && <td className="text-center" >{props.APR60} (5)</td>} 
                     </tr>
                     <tr>
                         <td className="text-center bg-gray-100">Finance Charge (the dollar amount the credit will cost you)</td>
-                        <td className="text-center bg-gray-100" colSpan={!props.multipleLoanLengths && "2"}>{props.finCharge36} (4)</td> 
+                        <td className="text-center bg-gray-100" colSpan={props.multipleLoanLengths ? undefined : "2"}>{props.finCharge36} (4)</td> 
                         {props.multipleLoanLengths && <td className="text-center bg-gray-100">{props.finCharge60} (5)</td>} 
                     </tr>
                     <tr>
                         <td className="text-center">Interest-Only Monthly Payment</td>
-                        <td className="text-center" colSpan={!props.multipleLoanLengths && "2"}>{props.ioPayment36} (4)</td> 
+                        <td className="text-center" colSpan={props.multipleLoanLengths ? undefined : "2"}>{props.ioPayment36} (4)</td> 
                         {props.multipleLoanLengths && <td className="text-center">{props.ioPayment60} (5)</td> }
                     </tr>
                     <tr>
                         <td className="text-center bg-gray-100">Full Monthly (Principal and Interest) Payment</td>
-                        <td className="text-center bg-gray-100" colSpan={!props.multipleLoanLengths && "2"}>{props.fullPayment36} (4)</td> 
+                        <td className="text-center bg-gray-100" colSpan={props.multipleLoanLengths ? undefined : "2"}>{props.fullPayment36} (4)</td> 
                         {props.multipleLoanLengths && <td className="text-center bg-gray-100">{props.fullPayment60} (5)</td> }
                     </tr>
                 </tbody>
@@ -85,7 +85,7 @@ const InterestOnlyTerms = props => (
                         <td className="text-center">{props.fullPayment36} (4)</td> 
                     </tr>
                     {props.multipleLoanLengths && 
-                    <div>
+                    <>
                     <tr>
                         <th className="bg-secondary text-center text-white">60 Month Loan</th>
                     </tr>
@@ -113,7 +113,7 @@ const InterestOnlyTerms = props => (
                     <tr>
                         <td className="text-center">{props.fullPayment60} (5)</td> 
                     </tr>
-                    </div>
+                    </>
                     }
                 </tbody>
             </table>

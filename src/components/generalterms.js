@@ -10,7 +10,7 @@ const GeneralTerms = props => (
                 <tbody>
                     <tr>
                         <th className="bg-secondary text-center text-white">Skills Fund Loan</th>
-                        <th className="bg-secondary text-center text-white" colSpan={!props.multipleLoanLengths && "2"}>36 Month</th>
+                        <th className="bg-secondary text-center text-white" colSpan={props.multipleLoanLengths ? undefined : "2"}>36 Month</th>
                         {props.multipleLoanLengths && <th className="bg-secondary text-center text-white">60 Month</th>}
                     </tr>
                     <tr>
@@ -23,7 +23,7 @@ const GeneralTerms = props => (
                     </tr>
                     <tr>
                         <td className="text-center">Interest Rate (2)</td>
-                        <td className="text-center" colSpan={!props.multipleLoanLengths && "2"}>Fixed<br /> {props.interestRate36} interest rate, {props.IOAPR36}{props.multipleLoanTypes && <span> - {props.IRAPR36}</span>} estimated APR</td> 
+                        <td className="text-center" colSpan={props.multipleLoanLengths ? undefined : "2"}>Fixed<br /> {props.interestRate36} interest rate, {props.IOAPR36}{props.multipleLoanTypes && <span> - {props.IRAPR36}</span>} estimated APR</td> 
                         {props.multipleLoanLengths && <td className="text-center">Fixed<br /> {props.interestRate60} interest rate, {props.IOAPR60}{props.multipleLoanTypes && <span> - {props.IRAPR60}</span>} estimated APR</td>} 
                     </tr>
                     <tr>
@@ -49,7 +49,7 @@ const GeneralTerms = props => (
                     </tr>
                     <tr>
                         <td className="text-center bg-gray-100">Principal and Interest Repayment Term</td>
-                        <td className="text-center bg-gray-100" colSpan={!props.multipleLoanLengths && "2"}>36 months (3 years)</td> 
+                        <td className="text-center bg-gray-100" colSpan={props.multipleLoanLengths ? undefined : "2"}>36 months (3 years)</td> 
                         {props.multipleLoanLengths && <td className="text-center bg-gray-100">60 months (5 years)</td> }
                     </tr>
                 </tbody>
@@ -114,7 +114,7 @@ const GeneralTerms = props => (
                         <td className="text-center">36 months (3 years)</td> 
                     </tr>
                     {props.multipleLoanLengths &&
-                    <div>
+                    <>
                         <tr>
                         <th className="bg-secondary text-center text-white">Skills Fund Loan - 60 Months</th>
                     </tr>
@@ -167,7 +167,7 @@ const GeneralTerms = props => (
                     <tr>
                         <td className="text-center">60 months (5 years)</td> 
                     </tr>
-                    </div>
+                    </>
                     }
                 </tbody>
             </table>
