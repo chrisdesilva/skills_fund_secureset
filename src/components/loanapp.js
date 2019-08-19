@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import ReactGA from 'react-ga'
 import ReactPixel from 'react-facebook-pixel'
 import marching from '../images/PeopleMarchColor.png'
@@ -6,7 +6,6 @@ import marching from '../images/PeopleMarchColor.png'
 const LoanApp = React.forwardRef((props, ref) => {
 
     const [email, setEmail] = useState('')
-    const [IP, setIP] = useState('')
     const [disclaimers, toggleDisclaimers] = useState(false)
     const [programInfo, setProgramInfo] = useState({
         programName: 'CORE Program',
@@ -22,8 +21,6 @@ const LoanApp = React.forwardRef((props, ref) => {
     const [applyNow, showApplyNow] = useState(false)
     const [loanUrl, setLoanUrl] = useState(`https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=SASSCORE17`) // if multiple programs, set lenderCode to first program option
     const formID = '84a22c21-7ecc-401e-a742-2bc6b7c068ad' // get form id for apply now
-    const schoolName = 'SecureSet Academy'
-    const pageUri = 'secureset.skills.fund' // partner page uri
     const costOfLiving = true // set to false of cost of living is not available
     const multiplePrograms = true // set to false if there is only one program
     const onlinePrograms = false // set to true if there is at least one online/remote program offered
@@ -166,19 +163,6 @@ const LoanApp = React.forwardRef((props, ref) => {
         })
     }
 
-    // Get IP address from client for Hubspot analytics
-    async function fetchIP() {
-        const res = await fetch("https://ip.nf/me.json")
-        res
-            .json()
-            .then(res => setIP(res.ip.ip))
-            .catch(err => console.log(err))
-    }
-
-    useEffect(() => {
-        fetchIP()
-    })
-
     // submit form data to Hubspot, track Google Analytics event, and redirect user to loan application
     const handleSubmit = e => {
         e.preventDefault();
@@ -208,7 +192,7 @@ const LoanApp = React.forwardRef((props, ref) => {
             },
             {
             "name": "school",
-            "value": `${schoolName}`
+            "value": `${props.schoolName}`
             },
             {
             "name": "student_loan_application_status",
@@ -221,9 +205,9 @@ const LoanApp = React.forwardRef((props, ref) => {
         ],
         "context": {
             "hutk": hsCookie.hubspotutk, // include this parameter and set it to the hubspotutk cookie value to enable cookie tracking on your submission
-            "pageUri": `${pageUri}`,
-            "pageName": `${schoolName} | Skills Fund`,
-            "ipAddress": `${IP}`
+            "pageUri": `${props.pageUri}`,
+            "pageName": `${props.schoolName} | Skills Fund`,
+            "ipAddress": `${props.IP}`
         }
         }
 
@@ -245,7 +229,7 @@ const LoanApp = React.forwardRef((props, ref) => {
     return (
         <div ref={ref} className="flex flex-col items-center justify-center py-8 mx-2 lg:mx-10 rounded shadow-xl">
             {/* update with school name, remove cost of living if school does not offer it */}
-            <h3 className="text-center">Apply for {schoolName} Tuition{costOfLiving && <span> and Cost of Living Funding</span>}</h3>
+            <h3 className="text-center">Apply for {props.schoolName} Tuition{costOfLiving && <span> and Cost of Living Funding</span>}</h3>
             <div className="flex justify-center">
                 <img className="w-auto" src={marching} alt="People marching and carrying flags" loading="lazy"/>
             </div>
@@ -255,7 +239,7 @@ const LoanApp = React.forwardRef((props, ref) => {
                 <input className="applyNowInput" type="email" name="email" placeholder="Enter your email address" onChange={handleChange} value={email} required />
                 {multiplePrograms && 
                     <div className="w-1/2">
-                        <p className="text-center">Select a {schoolName} program</p>
+                        <p className="text-center">Select a {props.schoolName} program</p>
                         
                         {/* WHEN ADDING AND REMOVING PROGRAMS, PAY ATTENTION TO THE NUMBER AT THE END OF programInfo.active and handleProgramSelect */}
                         <p className={programInfo.active.program1 ? activeClass : inactiveClass} onClick={() => handleProgramSelect(1)}>CORE Program</p>
@@ -269,7 +253,7 @@ const LoanApp = React.forwardRef((props, ref) => {
                 <div className="hidden">
                     <input type="text" name="Stakeholder Type" value="Student" readOnly/>
                     <input type="text" name="Program Name" value={programInfo.programName} readOnly/>
-                    <input type="text" name="School" value={schoolName} readOnly/>
+                    <input type="text" name="School" value={props.schoolName} readOnly/>
                     <input type="text" name="Student Loan Application Status" value="BLA Click Email Submitted" readOnly/>
                     <input type="text" name="Clicked Begin Loan Application BLA" value="BLA Click" readOnly/>
                 </div>

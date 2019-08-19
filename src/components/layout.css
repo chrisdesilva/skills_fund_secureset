@@ -50,16 +50,17 @@
 }
 
 /* SEND ME THE GUIDE BUTTON */
-.hs-button {
+#leadCaptureSubmitBtn {
   background-color: #9d1996;
   border-radius: 9999px;
   padding: .75rem;
   color: white;
   font-family: 'Work Sans', sans-serif;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  width: 12rem;
 }
 
-.hs-button:hover {
+#leadCaptureSubmitBtn:hover {
   cursor: pointer;
 }
 

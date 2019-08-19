@@ -113,8 +113,15 @@ class Homepage extends React.Component {
             <LoanCalculator />
             <LoanApp 
               ref={this.apply}
+              IP={this.props.IP}
+              pageUri={this.props.pageUri}
+              schoolName={this.props.schoolName}
             />
-            <LeadCaptureForm />
+            <LeadCaptureForm 
+              IP={this.props.IP}
+              pageUri={this.props.pageUri}
+              schoolName={this.props.schoolName}
+            />
             <InfoButtonContainer 
               info={this.activateMoreInfo}
               faq={this.activateFAQ}
