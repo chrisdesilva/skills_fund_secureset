@@ -27,6 +27,7 @@ const Header = ({ siteTitle }) => (
               src={schoolLogo} 
               alt={schoolInfo.schoolName}
               className="h-16"
+              loading="lazy"
             />
           </a>
           <a
@@ -38,6 +39,7 @@ const Header = ({ siteTitle }) => (
               src={skillsFund} 
               alt="Skills Fund logo"
               className="h-10"
+              loading="lazy"
             />
           </a>
       </div>

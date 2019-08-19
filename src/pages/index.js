@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import Homepage from '../components/homepage'
 import ReactGA from 'react-ga'
-// import ReactPixel from 'react-facebook-pixel'
+import ReactPixel from 'react-facebook-pixel'
 
 const trackingId = 'UA-68312423-14'
 ReactGA.initialize(trackingId, {
@@ -16,9 +16,9 @@ const netlifyFormName = 'secureset_contact'
 
 const IndexPage = () => {
   
-  // useEffect(() => {
-  //   ReactPixel.init('928181257515785');
-  // })
+  useEffect(() => {
+    ReactPixel.init('928181257515785');
+  })
   
   return (
     <div>
