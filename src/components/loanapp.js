@@ -18,7 +18,6 @@ const LoanApp = React.forwardRef((props, ref) => {
             program6: false,
         }
     })
-    const [applyNow, showApplyNow] = useState(false)
     const [loanUrl, setLoanUrl] = useState(`https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=SASSCORE17`) // if multiple programs, set lenderCode to first program option
     const formID = '84a22c21-7ecc-401e-a742-2bc6b7c068ad' // get form id for apply now
     const costOfLiving = true // set to false of cost of living is not available
@@ -49,7 +48,6 @@ const LoanApp = React.forwardRef((props, ref) => {
                     }
                 })
                 setLoanUrl(`https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=SASSCORE17`) // update lenderCode with market segment code from LP
-                showApplyNow(true)
                 break;
             case 2:
                 setProgramInfo({
@@ -64,7 +62,6 @@ const LoanApp = React.forwardRef((props, ref) => {
                     }
                 })
                 setLoanUrl(`https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=SASSCOCE17`) // update lenderCode with market segment code from LP
-                showApplyNow(true)
                 break;
             case 3:
                 setProgramInfo({
@@ -79,7 +76,6 @@ const LoanApp = React.forwardRef((props, ref) => {
                     }
                 })
                 setLoanUrl(`https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=SASSCOEV17`) // update lenderCode with market segment code from LP
-                showApplyNow(true)
                 break;
             case 4:
                 setProgramInfo({
@@ -94,7 +90,6 @@ const LoanApp = React.forwardRef((props, ref) => {
                     }
                 })
                 setLoanUrl(`https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=SASSCCEV17`) // update lenderCode with market segment code from LP
-                showApplyNow(true)
                 break;
             case 5:
                 setProgramInfo({
@@ -109,7 +104,6 @@ const LoanApp = React.forwardRef((props, ref) => {
                     }
                 })
                 setLoanUrl(`https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=SASSHUNT17`) // update lenderCode with market segment code from LP
-                showApplyNow(true)
                 break;
             case 6:
                 setProgramInfo({
@@ -124,7 +118,6 @@ const LoanApp = React.forwardRef((props, ref) => {
                     }
                 })
                 setLoanUrl(`https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=SASSHUCE17`) // update lenderCode with market segment code from LP
-                showApplyNow(true)
                 break;
             default: // info should match case 1
                 setProgramInfo({ 
@@ -139,7 +132,6 @@ const LoanApp = React.forwardRef((props, ref) => {
                     }
                 })
                 setLoanUrl(`https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=SASSCORE17`)
-                showApplyNow(true)
                 break;
         }
     }
@@ -238,8 +230,8 @@ const LoanApp = React.forwardRef((props, ref) => {
                 <label htmlFor="email">Email address</label>
                 <input className="applyNowInput" type="email" name="email" placeholder="Enter your email address" onChange={handleChange} value={email} required />
                 {multiplePrograms && 
-                    <div className="w-1/2">
-                        <p className="text-center">Select a {props.schoolName} program</p>
+                    <div className="w-full lg:w-1/2 px-8 lg:px-0">
+                        <p className="text-center text-sm">Select a {props.schoolName} program</p>
                         
                         {/* WHEN ADDING AND REMOVING PROGRAMS, PAY ATTENTION TO THE NUMBER AT THE END OF programInfo.active and handleProgramSelect */}
                         <p className={programInfo.active.program1 ? activeClass : inactiveClass} onClick={() => handleProgramSelect(1)}>CORE Program</p>
@@ -257,7 +249,7 @@ const LoanApp = React.forwardRef((props, ref) => {
                     <input type="text" name="Student Loan Application Status" value="BLA Click Email Submitted" readOnly/>
                     <input type="text" name="Clicked Begin Loan Application BLA" value="BLA Click" readOnly/>
                 </div>
-                {applyNow && email && <input className="w-40" value="APPLY NOW" id="loanAppSubmitBtn" type="submit"/>}
+                <input className="w-40 mt-5" value="APPLY NOW" id="loanAppSubmitBtn" type="submit"/>
                 <p className="mt-5 text-xs italic mb-0 px-8 text-center">Please note: clicking Apply Now will open your loan application in a new tab</p>
             </form>
             {onlinePrograms && 

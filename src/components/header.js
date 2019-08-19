@@ -17,7 +17,7 @@ const Header = ({ siteTitle }) => (
     }}
   >
     <div className="flex justify-center">
-      <div className="w-full md:w-1/2 lg:w-1/3 flex flex-col-reverse lg:flex-row justify-around items-center py-8 px-2 lg:px-0 mt-6">
+      <div className="w-full md:w-1/2 lg:w-1/3 flex flex-col-reverse lg:flex-row justify-around items-center py-2 px-2 lg:px-0 mt-6">
           <a
             href={schoolInfo.schoolUrl}
             target="_blank"
@@ -45,7 +45,7 @@ const Header = ({ siteTitle }) => (
       </div>
     </div>
     <div className="flex justify-center items-center text-center">
-      <h3 className="font-light mb-1">{schoolInfo.schoolName} tuition made easy</h3>
+      <h3 className="font-light mb-0">{schoolInfo.schoolName} tuition made easy</h3>
     </div>
   </header>
 )

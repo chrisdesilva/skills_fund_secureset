@@ -13,6 +13,7 @@ import Eligibility from './eligibility'
 import ContactForm from './contactform'
 import LoanApp from './loanapp'
 import LeadCaptureForm from './leadcaptureform'
+import ApplyFooter from './applyFooter';
 
 
 class Homepage extends React.Component {
@@ -26,6 +27,7 @@ class Homepage extends React.Component {
         }
         this.threesteps = React.createRef();
         this.apply = React.createRef();
+        this.footer = React.createRef();
       }
     
       scrollToContent = () => {
@@ -51,6 +53,15 @@ class Homepage extends React.Component {
           category: 'Apply Now Button',
           action: 'click',
           label: 'getting started'
+        })
+      }
+
+      scrollToApply3 = () => {
+        this.apply.current.scrollIntoView({ behavior: 'smooth' });
+        ReactGA.event({
+          category: 'Apply Now Button',
+          action: 'click',
+          label: 'footer'
         })
       }
     
@@ -132,6 +143,9 @@ class Homepage extends React.Component {
             {this.state.faq && <FAQ />}
             {this.state.eligibility && <Eligibility />}
             {this.state.contact && <ContactForm formName={this.props.formName}/>}
+            <ApplyFooter
+              onClick={this.scrollToApply3}
+            />
           </Layout>
         )
       }
