@@ -27,7 +27,6 @@ class Homepage extends React.Component {
         }
         this.threesteps = React.createRef();
         this.apply = React.createRef();
-        this.footer = React.createRef();
       }
     
       scrollToContent = () => {
@@ -104,19 +103,12 @@ class Homepage extends React.Component {
       render(){
         return (
           <Layout>
-
-            {/* UPDATE SCHOOL NAME */}
-            <SEO title='SecureSet Academy' />
-
+            <SEO title={this.props.schoolName} />
             <Banner 
                 howItWorksOnClick={this.scrollToContent}  
                 applyNowOnClick={this.scrollToApply}  
             />
-
-            {/* UPDATE SCHOOL NAME */}
-            <LeadContent 
-              schoolName='SecureSet Academy'
-            />
+            <LeadContent />
             <ThreeSteps
               onClick={this.scrollToApply2} 
               ref={this.threesteps}
