@@ -28,7 +28,7 @@ const ThreeSteps = React.forwardRef((props, ref) => {
                     <h3 className="uppercase">apply for funding!</h3>
                     <p className="m-0">You'll be on your way to an exciting career in tech as part of {schoolName}'s powerful network.</p>
                     <Button
-                        buttonClassName="uppercase bg-tertiary p-3 rounded-full shadow-lg text-white"
+                        buttonClassName="uppercase bg-primary p-3 rounded-full shadow-lg text-white"
                         divClassName="flex justify-center mt-5"
                         text="apply now"
                         onClick={props.onClick}
