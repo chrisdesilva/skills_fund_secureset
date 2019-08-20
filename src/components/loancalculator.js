@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import LoanCalcPaymentTable from './loancalcpaymenttable';
 
 const LoanCalculator = () => {
 
@@ -120,7 +121,8 @@ const LoanCalculator = () => {
 
                 {/* UPDATE LOAN AMOUNTS AND COST OF LIVING BY PROGRAM BELOW */}
                 <p className="text-center">Choose the loan amount that works best for you. Borrow up to $20,000 for the CORE Program tuition, $7,400 for optional certification, and $10,000 for cost of living. Borrow up to $12,000 for the HUNT Program tuition, $7,400 for optional certification, and $6,000 for cost of living. Borrow up to $16,000 for the PATH Program tuition and $7,400 for optional certification.</p>
-                
+                <LoanCalcPaymentTable />
+
                 {/* ADD OR REMOVE PROGRAMS BELOW */}
                 {multiPrograms &&
                     <div className="flex flex-col justify-center w-full md:w-1/3">
