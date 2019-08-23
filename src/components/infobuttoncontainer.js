@@ -1,14 +1,28 @@
 import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
 
 // no updates necessary
 
 const InfoButtonContainer = props => {
     return (
-        <div className="flex flex-wrap justify-center items-center lg:justify-around mx-0 lg:mx-24 my-5">
-            <button className="w-40 bg-secondary text-white p-3 rounded-full shadow-lg my-2 mx-2 lg:mx-5" onClick={props.info}>Terms</button>
-            <button className="w-40 bg-secondary text-white p-3 rounded-full shadow-lg my-2 mx-2 lg:mx-5" onClick={props.faq}>FAQ</button>
-            <button className="w-40 bg-secondary text-white p-3 rounded-full shadow-lg my-2 mx-2 lg:mx-5" onClick={props.eligibility}>Eligibility</button>
-            <button className="w-40 bg-secondary text-white p-3 rounded-full shadow-lg my-2 mx-2 lg:mx-5" onClick={props.contact}>Contact</button>
+        <div className="flex flex-wrap items-center justify-around p-4 my-5 mx-2 lg:mx-10 rounded shadow-xl bg-purple-100">
+            <div className="cursor-pointer w-1/4 footerLink flex flex-col items-center">
+                <p className="m-0 text-primary" onClick={props.info}>Term Info</p>
+                <FontAwesomeIcon icon={faAngleDown} />
+            </div>
+            <div className="cursor-pointer w-1/4 footerLink flex flex-col items-center">
+                <p className="m-0 text-primary" onClick={props.faq}>FAQ</p>
+                <FontAwesomeIcon icon={faAngleDown} />
+            </div>
+            <div className="cursor-pointer w-1/4 footerLink flex flex-col items-center">
+                <p className="m-0 text-primary" onClick={props.eligibility}>Eligibility</p>
+                <FontAwesomeIcon icon={faAngleDown} />
+            </div>
+            <div className="cursor-pointer w-1/4 footerLink flex flex-col items-center">
+                <p className="m-0 text-primary" onClick={props.contact}>Contact</p>
+                <FontAwesomeIcon icon={faAngleDown} />
+            </div>
         </div>
     )
 }

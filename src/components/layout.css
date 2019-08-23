@@ -5,15 +5,28 @@
 @tailwind components;
 @tailwind utilities;
 
-#banner {
-  background: #485563;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #29323c, #485563);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #29323c, #485563); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+#banner { 
+  -webkit-clip-path: polygon(0 0, 100% 0%, 100% 90%, 0% 100%);
+  clip-path: polygon(0 0, 100% 0%, 100% 90%, 0% 100%);
+  height: 75vh;
+  position: relative;
+}
+#banner::before {
+  -webkit-clip-path: polygon(0 10%, 100% 0%, 100% 90%, 0% 100%);
+  clip-path: polygon(0 10%, 100% 0%, 100% 90%, 0% 100%);
+  height: 100%;
+  content: '';
+  left: 0;
+  bottom: -86%;
+  right: 0;
+  background: #9d1996;
+  display: block;
+  position: absolute;
 }
 
 .opacityApply {
-  transition: all 300ms;  
-  opacity: .8;
+  transition: all 300ms;
+  opacity: .85;
 }
 
 .opacityApply:hover {
@@ -22,6 +35,18 @@
 
 .stepCards {
   transition: all 300ms;
+}
+
+.footerLink {
+  transition: all 300ms;
+}
+
+.footerLink:hover {
+  color: #9d1996;
+}
+
+.fa-angle-down {
+  color: #9d1996;
 }
 
 #stepCard1:hover {
@@ -35,11 +60,6 @@
 #stepCard3:hover {
   transform: scale(1.05)
 }
-
-#stepsApplyNow {
-
-}
-
 /* ----------BEGIN HUBSPOT APPLY NOW FORM STYLING----------- */
 #hsForm_c7688725-624e-435c-8add-8409a327eecb {
   display: flex;
