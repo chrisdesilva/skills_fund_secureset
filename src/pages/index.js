@@ -5,12 +5,11 @@ import ReactPixel from 'react-facebook-pixel'
 
 const trackingId = 'UA-68312423-14'
 ReactGA.initialize(trackingId, {
-  debug: false,
+  debug: true,
   titleCase: false,
   gaOptions: {
     siteSpeedSampleRate: 100
-  },
-  standardImplementation: true
+  }
 })
 
 const netlifyFormName = 'secureset_contact'
@@ -29,7 +28,7 @@ const IndexPage = () => {
           .then(res => setIP(res.ip.ip))
           .catch(err => console.log(err))
     }
-  
+
   useEffect(() => {
     ReactPixel.init('928181257515785');
     fetchIP();

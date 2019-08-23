@@ -20,7 +20,7 @@ class Homepage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-          termInfo: true,
+          termInfo: false,
           faq: false,
           eligibility: false,
           contact: false
@@ -29,13 +29,13 @@ class Homepage extends React.Component {
         this.apply = React.createRef();
       }
     
-      scrollToContent = () => {
-        this.threesteps.current.scrollIntoView({ behavior: 'smooth' });
-        ReactGA.event({
-          category: 'How It Works Button',
-          action: 'click'
-        })
-      }
+      // scrollToContent = () => {
+      //   this.threesteps.current.scrollIntoView({ behavior: 'smooth' });
+      //   ReactGA.event({
+      //     category: 'How It Works Button',
+      //     action: 'click'
+      //   })
+      // }
 
       scrollToApply = () => {
         this.apply.current.scrollIntoView({ behavior: 'smooth' });
