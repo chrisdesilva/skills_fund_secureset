@@ -66,7 +66,7 @@ class Homepage extends React.Component {
     
       activateMoreInfo = () => {
         this.setState({
-          termInfo: true,
+          termInfo: !this.state.termInfo,
           faq: false,
           eligibility: false,
           contact: false
@@ -76,7 +76,7 @@ class Homepage extends React.Component {
       activateFAQ = () => {
         this.setState({
           termInfo: false,
-          faq: true,
+          faq: !this.state.faq,
           eligibility: false,
           contact: false
         })
@@ -86,7 +86,7 @@ class Homepage extends React.Component {
         this.setState({
           termInfo: false,
           faq: false,
-          eligibility: true,
+          eligibility: !this.state.eligibility,
           contact: false
         })
       }
@@ -96,7 +96,7 @@ class Homepage extends React.Component {
           termInfo: false,
           faq: false,
           eligibility: false,
-          contact: true
+          contact: !this.state.contact
         })
       }
     

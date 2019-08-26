@@ -12,7 +12,7 @@ const schoolInfo = {
 
 const Header = ({ siteTitle }) => (
   <header>
-    <div className="flex justify-center">
+    <div className="flex justify-center shadow-lg">
       <div className="w-full flex justify-around items-center py-2 px-2 lg:px-0">
           <a
             href={schoolInfo.schoolUrl}

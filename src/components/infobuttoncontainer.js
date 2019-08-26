@@ -7,20 +7,20 @@ import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
 const InfoButtonContainer = props => {
     return (
         <div className="flex flex-wrap items-center justify-around p-4 my-5 mx-2 lg:mx-10 rounded shadow-xl bg-purple-100">
-            <div className="cursor-pointer w-1/4 footerLink flex flex-col items-center">
-                <p className="m-0 text-primary" onClick={props.info}>Term Info</p>
+            <div onClick={props.info} className="cursor-pointer w-1/4 footerLink flex flex-col items-center">
+                <p className="m-0 text-primary">Term Details</p>
                 <FontAwesomeIcon icon={faAngleDown} />
             </div>
-            <div className="cursor-pointer w-1/4 footerLink flex flex-col items-center">
-                <p className="m-0 text-primary" onClick={props.faq}>FAQ</p>
+            <div onClick={props.faq} className="cursor-pointer w-1/4 footerLink flex flex-col items-center">
+                <p className="m-0 text-primary">FAQ</p>
                 <FontAwesomeIcon icon={faAngleDown} />
             </div>
-            <div className="cursor-pointer w-1/4 footerLink flex flex-col items-center">
-                <p className="m-0 text-primary" onClick={props.eligibility}>Eligibility</p>
+            <div onClick={props.eligibility} className="cursor-pointer w-1/4 footerLink flex flex-col items-center">
+                <p className="m-0 text-primary">Eligibility</p>
                 <FontAwesomeIcon icon={faAngleDown} />
             </div>
-            <div className="cursor-pointer w-1/4 footerLink flex flex-col items-center">
-                <p className="m-0 text-primary" onClick={props.contact}>Contact</p>
+            <div onClick={props.contact} className="cursor-pointer w-1/4 footerLink flex flex-col items-center">
+                <p className="m-0 text-primary">Contact</p>
                 <FontAwesomeIcon icon={faAngleDown} />
             </div>
         </div>
