@@ -6,6 +6,8 @@ import marching from '../images/PeopleMarchColor.png'
 const LoanApp = React.forwardRef((props, ref) => {
 
     const [email, setEmail] = useState('')
+    const thankYouMsg = 'Thanks for applying! Your loan application has opened in a new window.'
+    const [submitted, isSubmitted] = useState(false)
     const [disclaimers, toggleDisclaimers] = useState(false)
     const [programInfo, setProgramInfo] = useState({
         programName: 'CORE Program',
@@ -216,6 +218,7 @@ const LoanApp = React.forwardRef((props, ref) => {
         trackGoogleAnalyticsEvent()
         trackFacebookPixel()
         redirectLoanApp()
+        isSubmitted(true)
     }
 
     return (
@@ -249,8 +252,8 @@ const LoanApp = React.forwardRef((props, ref) => {
                     <input type="text" name="Student Loan Application Status" value="BLA Click Email Submitted" readOnly/>
                     <input type="text" name="Clicked Begin Loan Application BLA" value="BLA Click" readOnly/>
                 </div>
-                <input className="w-40 mt-5" value="APPLY NOW" id="loanAppSubmitBtn" type="submit"/>
-                <p className="mt-5 text-xs italic mb-0 px-8 text-center">Please note: clicking Apply Now will open your loan application in a new tab</p>
+                {submitted ? thankYouMsg : <input className="w-40" value="APPLY NOW" id="loanAppSubmitBtn" type="submit"/>}
+                {!submitted && <p className="mt-3 text-xs italic">Please note: clicking Apply Now will open your loan application in a new tab</p>}
             </form>
             {onlinePrograms && 
                 <p className="px-8">

@@ -62,10 +62,10 @@ const TermInfo = () => (
                 multipleLoanTypes={multipleLoanTypes}
                 interestRate36={schoolInfo.interestRate36}
                 interestRate60={schoolInfo.interestRate60}
-                IOAPR36={schoolInfo.interestOnly.APR36}
-                IOAPR60={schoolInfo.interestOnly.APR60}
-                IRAPR36={schoolInfo.immediateRepayment.APR36}
-                IRAPR60={schoolInfo.immediateRepayment.APR60}
+                IOAPR36={schoolInfo.interestOnly[0].APR36}
+                IOAPR60={schoolInfo.interestOnly[0].APR60}
+                IRAPR36={schoolInfo.immediateRepayment[0].APR36}
+                IRAPR60={schoolInfo.immediateRepayment[0].APR60}
             />
 
             {schoolInfo.interestOnly.map(school => {
