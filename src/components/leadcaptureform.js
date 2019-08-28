@@ -59,7 +59,7 @@ const LeadCaptureForm = props => {
     }
 
     return (
-        <div className="flex flex-col items-center justify-center mt-8">
+        <div className="flex flex-col items-center justify-center pt-8">
             <h2>Get a Head Start</h2>
             <div>
                 <img className="h-64" src={ebook} alt="step-by-step guide to paying for your program" loading="lazy"/>
