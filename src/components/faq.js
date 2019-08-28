@@ -16,8 +16,8 @@ const IOPayment60 = '$99.32'
 
 // update with school-specific info
 const FAQ = () => (
-    <div className="border-2 border-gray-300 shadow-xl rounded-lg m-2 lg:m-10 p-8">
-       <h2 className="mt-4 text-center">Frequently Asked Questions</h2>
+     <div className="mx-2 lg:mx-10 p-8 shadow rounded">
+       <h2 className="py-4 text-center">Frequently Asked Questions</h2>
        <h3 className="uppercase text-primary">how much can i borrow and for what specific uses?</h3>
        <p>The maximum amount you can borrow will depend on your program. You can finance your tuition, optional certification, and cost of living expenses.</p>
           <ul>

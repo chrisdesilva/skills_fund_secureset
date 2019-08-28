@@ -58,6 +58,23 @@
 #stepCard3:hover {
   transform: scale(1.05)
 }
+.infoButton-enter {
+  transform: translateY(-100%);
+  transition: all .3s cubic-bezier(0, 1, 0.5, 1);
+}
+
+.infoButton-enter.infoButton-enter-active {
+  transform: translateY(0%);
+}
+
+.infoButton-leave {
+  transform: translateY(0%);
+  transition: all .3s ease-in-out;
+}
+
+.infoButton-leave.infoButton-leave-active {
+  transform: translateY(-100%);
+}
 
 /* ----------BEGIN HUBSPOT APPLY NOW FORM STYLING----------- */
 #hsForm_c7688725-624e-435c-8add-8409a327eecb {
