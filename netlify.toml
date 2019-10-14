@@ -6,3 +6,9 @@
   from = "/accepted"
   to = "/"
 
+
+[[redirects]]
+  from = "https://securesetacademy.skills.fund"
+  to = "/"
+
+
