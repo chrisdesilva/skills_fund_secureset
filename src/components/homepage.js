@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactGA from 'react-ga'
+// import ReactGA from 'react-ga'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import Banner from '../components/banner'
@@ -41,31 +41,13 @@ class Homepage extends React.Component {
 
       scrollToApply = () => {
         this.apply.current.scrollIntoView({ behavior: 'smooth' });
-        ReactGA.event({
-          category: 'Apply Now Button | SecureSet',
-          action: 'click',
-          label: 'banner'
-        })
+        // ReactGA.event({
+        //   category: 'Apply Now Button | SecureSet',
+        //   action: 'click',
+        //   label: 'banner'
+        // })
       }
 
-      scrollToApply2 = () => {
-        this.apply.current.scrollIntoView({ behavior: 'smooth' });
-        ReactGA.event({
-          category: 'Apply Now Button | SecureSet',
-          action: 'click',
-          label: 'getting started'
-        })
-      }
-
-      scrollToApply3 = () => {
-        this.apply.current.scrollIntoView({ behavior: 'smooth' });
-        ReactGA.event({
-          category: 'Apply Now Button | SecureSet',
-          action: 'click',
-          label: 'footer'
-        })
-      }
-    
       activateMoreInfo = () => {
         this.setState({
           termInfo: !this.state.termInfo,
@@ -112,7 +94,7 @@ class Homepage extends React.Component {
             />
             <LeadContent />
             <ThreeSteps
-              onClick={this.scrollToApply2} 
+              onClick={this.scrollToApply} 
               ref={this.threesteps}
             />
             <LoanCalculator />
@@ -147,7 +129,7 @@ class Homepage extends React.Component {
                 <ContactForm formName={this.props.formName}/>
             </Collapse>
             <ApplyFooter
-              onClick={this.scrollToApply3}
+              onClick={this.scrollToApply}
             />
           </Layout>
         )
