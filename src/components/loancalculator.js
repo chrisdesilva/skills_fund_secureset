@@ -19,7 +19,7 @@ const LoanCalculator = () => {
     const [loanInformation, setLoanInformation] = useState({ 
         maxLoanAmt: 37400,
         loanTerm36: true, // only true if 36 month option is available
-        loanTerm60: true, // only true if 60 month option is available
+        loanTerm60: false, // only true if 60 month option is available
         k: 5, // (program length in weeks / 4) + 2 -- round program length down to nearest number divisible by 4 (ie. 27 week program rounds down to 24, 24 / 4 + 6 = 12, k = 12)
         '0': { // interest-only
             apr36: 11.52, 
@@ -59,7 +59,7 @@ const LoanCalculator = () => {
                 setLoanInformation({
                     maxLoanAmt: 25500,
                     loanTerm36: true,
-                    loanTerm60: true,
+                    loanTerm60: false,
                     '0': { 
                         k: 7, 
                         apr36: 11.52, 
@@ -73,7 +73,7 @@ const LoanCalculator = () => {
                 setLoanInformation({
                     maxLoanAmt: 25400,
                     loanTerm36: true,
-                    loanTerm60: true,
+                    loanTerm60: false,
                     '0': { 
                         k: 5, 
                         apr36: 11.67, 
@@ -87,7 +87,7 @@ const LoanCalculator = () => {
                 setLoanInformation({
                     maxLoanAmt: 23400,
                     loanTerm36: true,
-                    loanTerm60: true,
+                    loanTerm60: false,
                     '0': null,
                     '1': {
                         apr36: 12.20,
@@ -100,7 +100,7 @@ const LoanCalculator = () => {
                 setLoanInformation({
                     maxLoanAmt: 25500,
                     loanTerm36: true,
-                    loanTerm60: true,
+                    loanTerm60: false,
                     '0': { 
                         k: 7, 
                         apr36: 11.52, 
