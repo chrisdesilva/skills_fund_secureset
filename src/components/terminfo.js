@@ -19,7 +19,7 @@ const schoolInfo = {
         FullMonthlyPayment60: '$228.51',
         LoanExampleAmt: '$10,000',
         LoanExampleOFeeAmt: '$400',
-        LoanExampleAmtPlusOFee: '$10,4000',
+        LoanExampleAmtPlusOFee: '$10,400',
         programLength: '5' // program length in months
     },
     {
@@ -50,7 +50,7 @@ const schoolInfo = {
         LoanExampleAmtPlusOFee: '$10,400',
     }]
 }
-const multipleLoanLengths = false // true if both 36 and 60 month options are available
+const multipleLoanLengths = true // true if both 36 and 60 month options are available
 const multipleLoanTypes = true // true if both IR and IO are available
 
 const TermInfo = props => (
