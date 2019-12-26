@@ -21,7 +21,7 @@ const LoanApp = React.forwardRef((props, ref) => {
             program6: false,
         }
     })
-    const [loanUrl, setLoanUrl] = useState(`https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=SASSCORE17`) // if multiple programs, set lenderCode to first program option
+    const [loanUrl, setLoanUrl] = useState(`https://my.skills.fund/application?lenderCode=SASSCORE17`) // if multiple programs, set lenderCode to first program option
     const formID = '84a22c21-7ecc-401e-a742-2bc6b7c068ad' // get form id for apply now
     const costOfLiving = true // set to false of cost of living is not available
     const multiplePrograms = true // set to false if there is only one program
@@ -50,7 +50,7 @@ const LoanApp = React.forwardRef((props, ref) => {
                         program6: false,
                     }
                 })
-                setLoanUrl(`https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=SASSCORE17`) // update lenderCode with market segment code from LP
+                setLoanUrl(`https://my.skills.fund/application?lenderCode=SASSCORE17`) // update lenderCode with market segment code from LP
                 break;
             case 2:
                 setProgramInfo({
@@ -64,7 +64,7 @@ const LoanApp = React.forwardRef((props, ref) => {
                         program6: false,
                     }
                 })
-                setLoanUrl(`https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=SASSCOCE17`) // update lenderCode with market segment code from LP
+                setLoanUrl(`https://my.skills.fund/application?lenderCode=SASSCOCE17`) // update lenderCode with market segment code from LP
                 break;
             case 3:
                 setProgramInfo({
@@ -78,7 +78,7 @@ const LoanApp = React.forwardRef((props, ref) => {
                         program6: false,
                     }
                 })
-                setLoanUrl(`https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=SASSCOEV17`) // update lenderCode with market segment code from LP
+                setLoanUrl(`https://my.skills.fund/application?lenderCode=SASSCOEV17`) // update lenderCode with market segment code from LP
                 break;
             case 4:
                 setProgramInfo({
@@ -92,7 +92,7 @@ const LoanApp = React.forwardRef((props, ref) => {
                         program6: false,
                     }
                 })
-                setLoanUrl(`https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=SASSCCEV17`) // update lenderCode with market segment code from LP
+                setLoanUrl(`https://my.skills.fund/application?lenderCode=SASSCCEV17`) // update lenderCode with market segment code from LP
                 break;
             case 5:
                 setProgramInfo({
@@ -106,7 +106,7 @@ const LoanApp = React.forwardRef((props, ref) => {
                         program6: false,
                     }
                 })
-                setLoanUrl(`https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=SASSHUNT17`) // update lenderCode with market segment code from LP
+                setLoanUrl(`https://my.skills.fund/application?lenderCode=SASSHUNT17`) // update lenderCode with market segment code from LP
                 break;
             case 6:
                 setProgramInfo({
@@ -120,7 +120,7 @@ const LoanApp = React.forwardRef((props, ref) => {
                         program6: !programInfo.active.program6,
                     }
                 })
-                setLoanUrl(`https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=SASSHUCE17`) // update lenderCode with market segment code from LP
+                setLoanUrl(`https://my.skills.fund/application?lenderCode=SASSHUCE17`) // update lenderCode with market segment code from LP
                 break;
             default: // info should match case 1
                 setProgramInfo({ 
@@ -134,7 +134,7 @@ const LoanApp = React.forwardRef((props, ref) => {
                         program6: false,
                     }
                 })
-                setLoanUrl(`https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=SASSCORE17`)
+                setLoanUrl(`https://my.skills.fund/application?lenderCode=SASSCORE17`)
                 break;
         }
     }
