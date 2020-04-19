@@ -1,21 +1,7 @@
 import React, { useState } from "react"
 import { FaAngleDown } from "react-icons/fa"
 import { UnmountClosed as Collapse } from "react-collapse"
-
-const schoolName = "SecureSet Academy"
-const costOfLiving = true // true if at least one program has cost of living included
-const interestOnly = true // true if interest-only payments are an option
-const immediateRepayment = true // true if immediate repayment is an option
-const multipleLoanLengths = true // true if 36 and 60 month options are both available
-const multipleLoanTypes = true
-
-// interest payment FAQ info
-const interestRate36 = "9.49%"
-const interestRate60 = "11.46%"
-const APR36 = "11.52% - 11.67%"
-const APR60 = "12.92%- 12.99%"
-const IOPayment36 = "$82.25"
-const IOPayment60 = "$99.32"
+import { faq, schoolName } from "../constants/programInfo"
 
 // update with school-specific info
 const FAQ = () => {
@@ -46,35 +32,43 @@ const FAQ = () => {
       </div>
       <Collapse isOpened={q1} springConfig={{ stiffness: 150, damping: 30 }}>
         <p>
-          The maximum amount you can borrow will depend on your program. You can
-          finance your tuition, optional certification, and cost of living
-          expenses.
+          The maximum amount you can borrow will depend on your program.
+          {faq.costOfLiving && (
+            <span>
+              {" "}
+              You can finance your tuition and cost of living expenses.
+            </span>
+          )}
         </p>
-        <ul>
-          <li>
-            <strong>For the CORE Full-Time Program,</strong> you may borrow from
-            $2,000 to $20,000 for tuition. You may also borrow up to $10,000 for
-            cost of living and up to $7,400 for optional certification.
-          </li>
-          <li>
-            <strong>For the HUNT Full-Time Program,</strong> you may borrow from
-            $2,000 to $12,000 for tuition. You may also borrow up to $6,000 for
-            cost of living and up to $7,400 for optional certification.
-          </li>
-          <li>
-            <strong>For the PATH Part-Time program,</strong> you may borrow from
-            $2,000 to $16,000 for tuition and up to $7,400 for optional
-            certification. Cost of living is not available for this program.
-          </li>
+        <ul className="mb-0 pb-4">
+          {faq.loanRange.map(program => {
+            return (
+              <li>
+                <strong>For {program.programName},</strong> you may borrow from
+                $2,000 up to {program.maxAmount} for tuition and up to $7,400
+                for optional certification.{" "}
+                {program.col ? (
+                  <span>
+                    You may also borrow up to {program.colAmount} for cost of
+                    living.
+                  </span>
+                ) : (
+                  <span>Cost of living is not available for this program.</span>
+                )}
+              </li>
+            )
+          })}
         </ul>
-        <p className="mb-0 pb-4">
-          <strong>Please note:</strong> In order to finance cost of living,
-          borrow at least $2,000 in tuition financing. You will pay your cash
-          deposit directly to <strong>{schoolName}</strong>.
-        </p>
+        {faq.costOfLiving && (
+          <p className="mb-0 pb-4">
+            <strong>Please note:</strong> In order to finance cost of living,
+            borrow at least $2,000 in tuition financing. You will pay your cash
+            deposit directly to <strong>{schoolName}</strong>.
+          </p>
+        )}
       </Collapse>
 
-      <div onClick={() => showq12(!q12)}>
+      <div onClick={() => showq2(!q2)}>
         <h3 className="text-lg text-lg uppercase text-primary flex items-center cursor-pointer">
           <span className="text-sm">
             <FaAngleDown />
@@ -82,7 +76,7 @@ const FAQ = () => {
           Why should I enroll in Autopay?
         </h3>
       </div>
-      <Collapse isOpened={q12} springConfig={{ stiffness: 150, damping: 30 }}>
+      <Collapse isOpened={q2} springConfig={{ stiffness: 150, damping: 30 }}>
         <p>
           For loans originated starting in 2020, students have the option to
           enroll in Autopay with our payment processor, Launch Servicing. There
@@ -111,9 +105,9 @@ const FAQ = () => {
         </p>
       </Collapse>
 
-      {costOfLiving && (
+      {faq.costOfLiving && (
         <>
-          <div onClick={() => showq2(!q2)}>
+          <div onClick={() => showq3(!q3)}>
             <h3 className="text-lg uppercase text-primary flex items-center cursor-pointer">
               <span className="text-sm">
                 <FaAngleDown />
@@ -122,15 +116,23 @@ const FAQ = () => {
             </h3>
           </div>
           <Collapse
-            isOpened={q2}
+            isOpened={q3}
             springConfig={{ stiffness: 150, damping: 30 }}
           >
-            {/* INCLUDE FIRST <p> IF ONLY CERTAIN PROGRAMS OFFER COST OF LIVING */}
-            <p>
-              <strong>
-                Only the CORE and HUNT programs are eligible for cost of living.
-              </strong>
-            </p>
+            {faq.costOfLivingPrograms && (
+              <p>
+                <strong>
+                  Only the {faq.costOfLivingPrograms}{" "}
+                  {faq.multCostOfLivingPrograms ? (
+                    <span>are</span>
+                  ) : (
+                    <span>is</span>
+                  )}{" "}
+                  eligible for cost of living.
+                </strong>
+              </p>
+            )}
+
             <p>
               Your lump sum living stipend will be sent to you on the second
               Wednesday after your program start. You can elect to have your
@@ -147,7 +149,7 @@ const FAQ = () => {
         </>
       )}
 
-      <div onClick={() => showq3(!q3)}>
+      <div onClick={() => showq4(!q4)}>
         <h3 className="text-lg uppercase text-primary flex items-center cursor-pointer">
           <span className="text-sm">
             <FaAngleDown />
@@ -155,7 +157,7 @@ const FAQ = () => {
           how and when will i repay my loan?
         </h3>
       </div>
-      <Collapse isOpened={q3} springConfig={{ stiffness: 150, damping: 30 }}>
+      <Collapse isOpened={q4} springConfig={{ stiffness: 150, damping: 30 }}>
         <p>
           You have several options, including automated payments! After you
           apply for a loan, we’ll help you set up your repayment account. About
@@ -169,7 +171,7 @@ const FAQ = () => {
           monthly payment, or you can make larger payments. You have the
           flexibility to pay off your loan anytime before your loan term ends!
         </p>
-        {multipleLoanTypes && (
+        {faq.multipleLoanTypes && (
           <>
             <p>
               Skills Fund offers two repayment options. Check out the loan
@@ -181,7 +183,7 @@ const FAQ = () => {
                 <strong>Interest-only</strong> loans allow you to hold on to
                 more of your savings during your training. You’ll start making
                 low, interest-only payments about one month after your program
-                starts and continue those payments for two months after the
+                starts and continue those payments for three months after the
                 program ends. After this interest-only period, you’ll start
                 making full payments (interest + principal).
               </li>
@@ -193,13 +195,13 @@ const FAQ = () => {
             </ul>
           </>
         )}
-        {!multipleLoanTypes && interestOnly && (
+        {!faq.multipleLoanTypes && faq.interestOnly && (
           <p>
             Skills Fund’s interest-only loans allow you to hold on to more of
             your savings during your training. You’ll start making low,
             interest-only payments about one month after your program starts and
-            continue those payments for two months after the program ends. After
-            this interest-only period, you’ll start making full payments
+            continue those payments for three months after the program ends.
+            After this interest-only period, you’ll start making full payments
             (interest + principal).
           </p>
         )}
@@ -244,7 +246,7 @@ const FAQ = () => {
         </ul>
       </Collapse>
 
-      <div onClick={() => showq4(!q4)}>
+      <div onClick={() => showq5(!q5)}>
         <h3 className="text-lg uppercase text-primary flex items-center cursor-pointer">
           <span className="text-sm">
             <FaAngleDown />
@@ -252,23 +254,23 @@ const FAQ = () => {
           what is the deferment period?
         </h3>
       </div>
-      <Collapse isOpened={q4} springConfig={{ stiffness: 150, damping: 30 }}>
+      <Collapse isOpened={q5} springConfig={{ stiffness: 150, damping: 30 }}>
         <p className="mb-0 pb-4">
           The deferment period is defined as the time you are attending the
-          course, plus an additional two months after program completion. These
-          additional two months are considered your grace period.
+          course, plus an additional three months after program completion.
+          These additional three months are considered your grace period.
         </p>
-        {interestOnly && (
+        {faq.interestOnly && (
           <p className="mb-0 pb-4">
             <strong>Interest-Only Loans: </strong>Interest-only payments are
             required during the deferment period. After the deferment period
             ends, payments of interest and principal are required. Paying
             interest on your loan during the deferment period will result in
             lower interest + principal payments during the full loan repayment
-            phase of 36{multipleLoanLengths && <span> or 60</span>} months.
+            phase of 36{faq.multipleLoanLengths && <span> or 60</span>} months.
           </p>
         )}
-        {immediateRepayment && (
+        {faq.immediateRepayment && (
           <p className="mb-0 pb-4">
             <strong>Immediate Repayment Loans: </strong>These loans have no
             deferment period. You will start making full monthly payments
@@ -279,7 +281,7 @@ const FAQ = () => {
         )}
       </Collapse>
 
-      <div onClick={() => showq5(!q5)}>
+      <div onClick={() => showq6(!q6)}>
         <h3 className="text-lg uppercase text-primary flex items-center cursor-pointer">
           <span className="text-sm">
             <FaAngleDown />
@@ -287,24 +289,24 @@ const FAQ = () => {
           how much are interest payments during the deferment period?
         </h3>
       </div>
-      <Collapse isOpened={q5} springConfig={{ stiffness: 150, damping: 30 }}>
+      <Collapse isOpened={q6} springConfig={{ stiffness: 150, damping: 30 }}>
         <p>
           The interest-only payments depend on how much you borrow; the less you
           borrow, the less you will pay.
         </p>
         <p>
           <strong>For a 36-month $10,000 loan:</strong> The interest rate is
-          fixed at {interestRate36} / {APR36} estimated APR. The interest-only
-          monthly payment is approximately {IOPayment36}.
+          fixed at {faq.interestRate36} / {faq.APR36} estimated APR. The
+          interest-only monthly payment is approximately {faq.IOPayment36}.
         </p>
-        {multipleLoanLengths && (
+        {faq.multipleLoanLengths && (
           <p>
             <strong>For a 60-month $10,000 loan:</strong> The interest rate is
-            fixed at {interestRate60} / {APR60} estimated APR. The interest-only
-            monthly payment is approximately {IOPayment60}.
+            fixed at {faq.interestRate60} / {faq.APR60} estimated APR. The
+            interest-only monthly payment is approximately {faq.IOPayment60}.
           </p>
         )}
-        <p>Please see terms in "More Info On Terms" above.</p>
+        <p>Please see terms in "Term Details" above.</p>
         <p className="mb-0 pb-4">
           <strong>Please note:</strong> The Annual Percentage Rate (APR) is
           estimated and may change slightly based on the loan type, origination
@@ -321,7 +323,7 @@ const FAQ = () => {
         </p>
       </Collapse>
 
-      <div onClick={() => showq6(!q6)}>
+      <div onClick={() => showq7(!q7)}>
         <h3 className="text-lg uppercase text-primary flex items-center cursor-pointer">
           <span className="text-sm">
             <FaAngleDown />
@@ -329,14 +331,13 @@ const FAQ = () => {
           will i get charged any fees for taking out this loan?
         </h3>
       </div>
-      <Collapse isOpened={q6} springConfig={{ stiffness: 150, damping: 30 }}>
+      <Collapse isOpened={q7} springConfig={{ stiffness: 150, damping: 30 }}>
         <p>
-          You will be charged an origination fee of 4.0%. This amount will be
+          You will be charged an origination fee of 5.0%. This amount will be
           added to the amount of tuition you borrow and is included in the total
           loan principal amount you finance. This fee helps cover the
           administrative fees associated with originating the loan and is
-          charged by our partner bank. Please see terms in "More Info on Terms"
-          above.
+          charged by our partner bank. Please see terms in "Term Details" above.
         </p>
         <p className="mb-0 pb-4">
           <strong>Please note:</strong> This fee is already reflected in the APR
@@ -353,7 +354,7 @@ const FAQ = () => {
         </p>
       </Collapse>
 
-      <div onClick={() => showq7(!q7)}>
+      <div onClick={() => showq8(!q8)}>
         <h3 className="text-lg uppercase text-primary flex items-center cursor-pointer">
           <span className="text-sm">
             <FaAngleDown />
@@ -361,7 +362,7 @@ const FAQ = () => {
           i am applying for a scholarship. should i wait to apply for financing?
         </h3>
       </div>
-      <Collapse isOpened={q7} springConfig={{ stiffness: 150, damping: 30 }}>
+      <Collapse isOpened={q8} springConfig={{ stiffness: 150, damping: 30 }}>
         <p>
           You may apply for financing in parallel to applying for your
           scholarship. If you are awarded your scholarship prior to the
@@ -388,7 +389,7 @@ const FAQ = () => {
         </p>
       </Collapse>
 
-      <div onClick={() => showq8(!q8)}>
+      <div onClick={() => showq9(!q9)}>
         <h3 className="text-lg uppercase text-primary flex items-center cursor-pointer">
           <span className="text-sm">
             <FaAngleDown />
@@ -396,7 +397,7 @@ const FAQ = () => {
           do i need a cosigner?
         </h3>
       </div>
-      <Collapse isOpened={q8} springConfig={{ stiffness: 150, damping: 30 }}>
+      <Collapse isOpened={q9} springConfig={{ stiffness: 150, damping: 30 }}>
         <p>
           There are two ways to qualify for a Skills Fund loan: on your own, or
           with a cosigner. Cosigners can strengthen your application’s overall
@@ -431,7 +432,7 @@ const FAQ = () => {
         </p>
       </Collapse>
 
-      <div onClick={() => showq9(!q9)}>
+      <div onClick={() => showq10(!q10)}>
         <h3 className="text-lg uppercase text-primary flex items-center cursor-pointer">
           <span className="text-sm">
             <FaAngleDown />
@@ -439,7 +440,7 @@ const FAQ = () => {
           when can i apply for a loan?
         </h3>
       </div>
-      <Collapse isOpened={q9} springConfig={{ stiffness: 150, damping: 30 }}>
+      <Collapse isOpened={q10} springConfig={{ stiffness: 150, damping: 30 }}>
         <p className="mb-0 pb-4">
           Apply for the loan after your acceptance into a program. Your program
           cohort must begin within 90 days of the date that you apply for a
@@ -447,7 +448,7 @@ const FAQ = () => {
         </p>
       </Collapse>
 
-      <div onClick={() => showq10(!q10)}>
+      <div onClick={() => showq11(!q11)}>
         <h3 className="text-lg uppercase text-primary flex items-center cursor-pointer">
           <span className="text-sm">
             <FaAngleDown />
@@ -455,7 +456,7 @@ const FAQ = () => {
           what information do i need to provide skills fund?
         </h3>
       </div>
-      <Collapse isOpened={q10} springConfig={{ stiffness: 150, damping: 30 }}>
+      <Collapse isOpened={q11} springConfig={{ stiffness: 150, damping: 30 }}>
         <p>
           During the loan application process, we will ask you for the following
           information:
@@ -476,7 +477,7 @@ const FAQ = () => {
         </ul>
       </Collapse>
 
-      <div onClick={() => showq11(!q11)}>
+      <div onClick={() => showq12(!q12)}>
         <h3 className="text-lg uppercase text-primary flex items-center cursor-pointer">
           <span className="text-sm">
             <FaAngleDown />
@@ -484,7 +485,7 @@ const FAQ = () => {
           will you check my credit?
         </h3>
       </div>
-      <Collapse isOpened={q11} springConfig={{ stiffness: 150, damping: 30 }}>
+      <Collapse isOpened={q12} springConfig={{ stiffness: 150, damping: 30 }}>
         <p className="mb-0 pb-4">
           Yes. When you apply we will check your credit, including your credit
           score. Interested in learning more about what goes into your credit
