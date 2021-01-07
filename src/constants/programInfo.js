@@ -134,20 +134,20 @@ export const faq = {
   // max loan amounts by program for faq1
   loanRange: [
     {
-      programName: "CORE Full-Time",
-      maxAmount: "$20,000",
+      programName: "CORE Program",
+      maxAmount: "$19,450",
       col: true,
-      colAmount: "$10,000",
+      colAmount: "$7,500",
     },
     {
-      programName: "HUNT Full-Time",
-      maxAmount: "$12,000",
+      programName: "HUNT Program",
+      maxAmount: "$11,450",
       col: true,
-      colAmount: "$6,000",
+      colAmount: "$7,500",
     },
     {
-      programName: "PATH Part-Time",
-      maxAmount: "$16,000",
+      programName: "PATH Program",
+      maxAmount: "$15,450",
       col: false,
       colAmount: "$10,000",
     },
@@ -280,78 +280,6 @@ export const programLoanInfo = [
     ],
   },
   {
-    name: "CORE Program + Cert",
-    url: "https://my.skills.fund/application?lenderCode=SASSCOCE17",
-    loanInfo: {
-      // match loanInfo in first metro below
-      maxLoanAmt: 37400,
-      loanTerm36: true,
-      loanTerm60: true,
-      "Interest Only": {
-        // interest-only
-        k: 8,
-        apr36: 11.93,
-        apr60: 13.25,
-      },
-      "Immediate Repayment": {
-        apr36: 12.36,
-      },
-    },
-    defaultLoanType: "Interest Only", // leave at 0 for interest-only, set to 1 for immediate repayment
-    showMetros: false, // true if there are multiple metros with different tuition amounts for the same program
-    showLoanTypes: false, // true if both IR and IO are available
-    loanTypes: ["Interest Only"],
-    locations: ["Metro 1", "Metro 2", "Metro 3"],
-    metros: [
-      // list in same order as locations array above
-      {
-        location: "Metro 1",
-        loanInfo: {
-          // // match loanInfo to Program 1 above
-          maxLoanAmt: 37400,
-          loanTerm36: true,
-          loanTerm60: true,
-          "Interest Only": {
-            k: 8,
-            apr36: 11.93,
-            apr60: 13.25,
-          },
-          "Immediate Repayment": {
-            apr36: 12.36,
-          },
-        },
-      },
-      {
-        location: "Metro 2",
-        loanInfo: {
-          maxLoanAmt: 15545,
-          loanTerm36: true,
-          loanTerm60: true,
-          "Interest Only": {
-            k: 5,
-            apr36: 11.16,
-            apr60: 12.51,
-          },
-          "Immediate Repayment": null,
-        },
-      },
-      {
-        location: "Metro 3",
-        loanInfo: {
-          maxLoanAmt: 20545,
-          loanTerm36: true,
-          loanTerm60: true,
-          "Interest Only": {
-            k: 5,
-            apr36: 11.16,
-            apr60: 12.51,
-          },
-          "Immediate Repayment": null,
-        },
-      },
-    ],
-  },
-  {
     name: "HUNT Program",
     url: "https://my.skills.fund/application?lenderCode=SASSHUNT17",
     loanInfo: {
@@ -424,78 +352,6 @@ export const programLoanInfo = [
     ],
   },
   {
-    name: "HUNT Program + Cert",
-    url: "https://my.skills.fund/application?lenderCode=SASSHUCE17",
-    loanInfo: {
-      // match loanInfo in first metro below
-      maxLoanAmt: 25400,
-      loanTerm36: true,
-      loanTerm60: true,
-      "Interest Only": {
-        // interest-only
-        k: 8,
-        apr36: 11.93,
-        apr60: 13.25,
-      },
-      "Immediate Repayment": {
-        apr36: 12.36,
-      },
-    },
-    defaultLoanType: "Interest Only", // leave at 0 for interest-only, set to 1 for immediate repayment
-    showMetros: false, // true if there are multiple metros with different tuition amounts for the same program
-    showLoanTypes: false, // true if both IR and IO are available
-    loanTypes: ["Interest Only"],
-    locations: ["Metro 1", "Metro 2", "Metro 3"],
-    metros: [
-      // list in same order as locations array above
-      {
-        location: "Metro 1",
-        loanInfo: {
-          // // match loanInfo to Program 1 above
-          maxLoanAmt: 25400,
-          loanTerm36: true,
-          loanTerm60: true,
-          "Interest Only": {
-            k: 8,
-            apr36: 11.93,
-            apr60: 13.25,
-          },
-          "Immediate Repayment": {
-            apr36: 12.36,
-          },
-        },
-      },
-      {
-        location: "Metro 2",
-        loanInfo: {
-          maxLoanAmt: 15545,
-          loanTerm36: true,
-          loanTerm60: true,
-          "Interest Only": {
-            k: 5,
-            apr36: 11.16,
-            apr60: 12.51,
-          },
-          "Immediate Repayment": null,
-        },
-      },
-      {
-        location: "Metro 3",
-        loanInfo: {
-          maxLoanAmt: 20545,
-          loanTerm36: true,
-          loanTerm60: true,
-          "Interest Only": {
-            k: 5,
-            apr36: 11.16,
-            apr60: 12.51,
-          },
-          "Immediate Repayment": null,
-        },
-      },
-    ],
-  },
-  {
     name: "PATH Program",
     url: "https://my.skills.fund/application?lenderCode=SASSCOEV17",
     loanInfo: {
@@ -526,80 +382,6 @@ export const programLoanInfo = [
         loanInfo: {
           // // match loanInfo to Program 1 above
           maxLoanAmt: 16000,
-          loanTerm36: true,
-          loanTerm60: true,
-          "Interest Only": {
-            k: 8,
-            apr36: 11.93,
-            apr60: 13.25,
-          },
-          "Immediate Repayment": {
-            apr36: 12.87,
-            apr60: 13.62,
-          },
-        },
-      },
-      {
-        location: "Metro 2",
-        loanInfo: {
-          maxLoanAmt: 15545,
-          loanTerm36: true,
-          loanTerm60: true,
-          "Interest Only": {
-            k: 5,
-            apr36: 11.16,
-            apr60: 12.51,
-          },
-          "Immediate Repayment": null,
-        },
-      },
-      {
-        location: "Metro 3",
-        loanInfo: {
-          maxLoanAmt: 20545,
-          loanTerm36: true,
-          loanTerm60: true,
-          "Interest Only": {
-            k: 5,
-            apr36: 11.16,
-            apr60: 12.51,
-          },
-          "Immediate Repayment": null,
-        },
-      },
-    ],
-  },
-  {
-    name: "PATH Program + Cert",
-    url: "https://my.skills.fund/application?lenderCode=SASSCCEV17",
-    loanInfo: {
-      // match loanInfo in first metro below
-      maxLoanAmt: 23400,
-      loanTerm36: true,
-      loanTerm60: true,
-      "Interest Only": {
-        // interest-only
-        k: 8,
-        apr36: 11.93,
-        apr60: 13.25,
-      },
-      "Immediate Repayment": {
-        apr36: 12.87,
-        apr60: 13.62,
-      },
-    },
-    defaultLoanType: "Immediate Repayment", // leave at 0 for interest-only, set to 1 for immediate repayment
-    showMetros: false, // true if there are multiple metros with different tuition amounts for the same program
-    showLoanTypes: false, // true if both IR and IO are available
-    loanTypes: ["Immediate Repayment"],
-    locations: ["Metro 1", "Metro 2", "Metro 3"],
-    metros: [
-      // list in same order as locations array above
-      {
-        location: "Metro 1",
-        loanInfo: {
-          // // match loanInfo to Program 1 above
-          maxLoanAmt: 23400,
           loanTerm36: true,
           loanTerm60: true,
           "Interest Only": {
