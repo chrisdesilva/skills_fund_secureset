@@ -115,7 +115,7 @@ export const faq = {
   multCostOfLivingPrograms: true, // true if costOfLivingPrograms string has more than one program
   interestOnly: true, // true if interest-only payments are an option
   immediateRepayment: true, // true if immediate repayment is an option
-  multipleLoanLengths: true, // true if 36 and 60 month options are both available
+  multipleLoanLengths: false, // true if 36 and 60 month options are both available
   multipleLoanTypes: true, // true if both IR and IO are available
   multiPrograms: true, // only true if there are multiple programs
   onlinePrograms: true, // true if at least one program is remote/online
